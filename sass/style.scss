@@ -1,0 +1,162 @@
+$max_width: 100%;
+$half_width: 50%;
+
+$max_cols: 12;
+$single_col: $max_width / $max_cols;
+
+$tablet_break: 768px;
+$mobile_break: 480px;
+
+/* Colours */
+
+$white: #ffffff;
+$blue: #52A2E3;
+$green: #75F2A7;
+$orange: #F7BF66;
+$red: #F66951;
+
+/*  */
+
+body{
+    padding: 0;
+    margin: 0;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+.wrapper {
+    width: 100%;
+    display: table;
+    margin: 0 auto;
+    overflow: auto;
+}
+
+.container{
+    overflow: auto;
+}
+
+ul{
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    overflow: auto;
+
+    li{
+        float: left;
+        display: block;
+        width: 25%;
+        text-align: center;
+    }
+}
+
+#home{
+    text-align: center;
+
+    h1{
+        font-size: 140px;
+    }
+
+    h2{
+        font-size: 72px;
+    }
+
+    h3{
+        font-size: 48px;
+    }
+
+    .con{
+        margin-top: 80px;
+    }
+
+    a{
+        padding: 20px 40px;
+        margin: 0 30px;
+    }
+
+    .no_btn{
+        border: 3px solid rgba(237, 115, 113, 0.5);
+    }
+
+    .yes_btn{
+        border: 3px solid rgba(140, 234, 121, 0.5)
+    }
+}
+
+.row {
+    content: "";
+    clear: both;
+    display: block;
+    margin: 0 auto;
+    overflow: auto;
+
+    @for $i from 1 through 4 {
+        $color: $red;
+        @if $i == 1 {
+            $color: $blue;
+        } @else if $i == 2 {
+            $color: $green;
+        } @else if $i == 3 {
+            $color: $orange;
+        }
+
+        &:nth-child(#{$i}) div {
+            background-color: $color;
+        }
+    }
+}
+
+[class*='col-'] {
+    float: left;
+    padding-right: 25px;
+    height: 120px;
+    border-width: 10px 2px 5px 2px;
+    border-style: solid;
+    border-color: $white;
+
+    &:last-of-type {
+        padding-right: 0;
+    }
+}
+
+@for $i from 1 through $max_cols {
+    .col-#{$i} {
+        width: $single_col * $i;
+    }
+
+    .offset-#{$i} {
+        margin-left: $single_col * $i;
+    }
+}
+
+/* Small Devices, Tablets */
+@media all and (max-width: $tablet_break) {
+    .col-6 {
+        width: $half_width;
+    }
+
+    .col-3 {
+        width: $half_width;
+    }
+
+    [class*='offset-'] {
+        margin: 0;
+    }
+}
+
+
+/* Extra Small Devices, Phones */
+@media all and (max-width: $mobile_break) {
+    .col-8 {
+        width: $max_width;
+    }
+
+    .extended {
+        display: none;
+    }
+
+    .col-6 {
+        width: $max_width;
+    }
+}
