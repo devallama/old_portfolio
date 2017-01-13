@@ -4,8 +4,8 @@ $half_width: 50%;
 $max_cols: 12;
 $single_col: $max_width / $max_cols;
 
-$tablet_break: 768px;
-$mobile_break: 480px;
+$tablet_break: 1000px;
+$mobile_break: 600px;
 
 /* Colours */
 
@@ -51,11 +51,12 @@ body{
 }
 
 .sub_header{
-    background-color: #507087;
+    background-color: #569aaf;
     color: #fff;
 
     @for $index from 1 through 6 {
         h#{$index}{
+            padding: 0 10px;
             font-weight: 300;
         }
     }
@@ -72,7 +73,7 @@ body{
 }
 
 nav{
-    background-color: #2d4f67;
+    background-color: #2c7488;
     text-align: center;
 
     ul{
@@ -190,7 +191,7 @@ footer{
     p{
         font-size: 1.5em;
         width: 60%;
-        line-height: 50px;
+        line-height: 2.5em;
         font-weight: 300;
     }
 
@@ -244,6 +245,7 @@ footer{
     .social_links_con{
         text-align: center;
         width: 30%;
+        min-width: 300px;
         padding: 0;
         margin: 0 auto;
         background-color: #fff;
@@ -267,24 +269,32 @@ footer{
 
     input {
         width: 40%;
+        min-width: 300px;
         max-width: 500px;
         display: block;
         margin: 0 auto;
-        padding: 5px 4px;
+        padding: 8px 6px;
     }
 
     input[type=submit] {
         width: 10%;
+        min-width: 200px;
         margin: 20px auto;
-        font-size: 1.9em;
+        font-size: 0.9em;
         background-color: #6199c1;
         border: none;
         padding: 15px 0;
         color: #fff;
     }
 
+    input:valid {
+        border: 2px solid #78f078;
+        border-radius: 3px;
+    }
+
     textarea{
         width: 40%;
+        min-width: 300px;
         max-width: 500px;
         padding: 5px 4px;
         height: 200px;
@@ -376,20 +386,23 @@ footer{
         .blog_time{
             float: left;
             text-align: center;
+            width: 12%;
         }
         .blog_title{
             float: left;
             font-size: 32px;
             margin-left: 20px;
+            width: calc(63% - 22px);
         }
         .blog_category{
             float: right;
             font-weight: bold;
+            width: 25%;
         }
     }
     .blog_content{
         padding: 20px 50px;
-        line-height: 28px;
+        line-height: 1.4em;
 
         img{
             float: right;
@@ -464,7 +477,7 @@ aside{
     }
 
     .work_image{
-        height: 40vh;
+        height: 30vw;
         text-align: center;
 
         img{
@@ -490,6 +503,10 @@ aside{
         &.active{
             background-color: #2d4f67;
         }
+    }
+
+    p{
+        line-height: 1.6em;
     }
 }
 
@@ -548,6 +565,24 @@ aside{
 
 /* Small Devices, Tablets */
 @media all and (max-width: $tablet_break) {
+    body{
+        font-size: 16px;
+    }
+
+    nav{
+        ul{
+            width: 80%;
+        }
+    }
+
+    .blog_post_container{
+        padding: 10px 10px 15px 5px;
+
+        .blog_title{
+            font-size: 1.4em !important;
+        }
+    }
+
     .col-6 {
         width: $half_width;
     }
