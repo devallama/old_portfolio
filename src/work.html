@@ -3,12 +3,34 @@
     <head>
         <title>Nick's Portfolio</title>
         <link rel="stylesheet" type="text/css" href="./css/style.css" />
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+        <script>
+            var activeImg = 0;
+            $('document').ready(function(){
+                $('.work_preview_btn').click(function() {
+                    var data = $(this).data('control');
+                    console.log(data);
+                    if(activeImg == data) {
+                        return;
+                    } else{
+                        $(".work_image img[data-img='" + activeImg +"']").hide();
+                        $(".work_image img[data-img='" + data +"']").show();
+                        $(".work_preview_btn[data-control='" + activeImg +"']").removeClass("active");
+                        $(".work_preview_btn[data-control='" + data +"']").addClass("active");
+                        activeImg = data;
+                    }
+                });
+            });
+        </script>
     </head>
     <body>
         <div class="wrapper">
             <header>
                 <nav class="col-12">
                     <ul>
+                        <li>
+                            <a href="./about.html">home</a>
+                        </li>
                         <li>
                             <a href="./about.html">about</a>
                         </li>
@@ -24,51 +46,38 @@
                     </ul>
                 </nav>
             </header>
-            <div class="sub_header col_container">
-                <section class="top">
-                    <div class="col-6">
-                        <h1>My Past Work</h1>
-                    </div>
-                </section>
+            <div class="sub_header row work_header">
+                <div class="col-6">
+                    <h1>My Past Work</h1>
+                </div>
             </div>
-            <main>
-                <div class="work_prev work_btn">
+            <main id="work" class="row">
+                <!-- <div class="work_prev work_btn">
                     <<
                 </div>
+                <div class="work_next work_btn">
+                    >>
+                </div> -->
                 <section>
                     <div class="col-6">
                         <div class="work_image">
-
+                            <img src="./resources/imgs/work0.png" data-img="0" />
+                            <img src="./resources/imgs/work1.png" data-img="1" class="hidden"/>
+                            <img src="./resources/imgs/work2.png" data-img="2" class="hidden"/>
                         </div>
                         <div class="work_preview_controls">
-                            <div class="work_preview_btn" data-control="1">
-
-                            </div>
-                            <div class="work_preview_btn" data-control="2">
-
-                            </div>
-                            <div class="work_preview_btn" data-control="3">
-
-                            </div>
-                            <div class="work_preview_btn" data-control="4">
-
-                            </div>
+                            <div class="work_preview_btn active" data-control="0"></div>
+                            <div class="work_preview_btn" data-control="1"></div>
+                            <div class="work_preview_btn" data-control="2"></div>
                         </div>
                     </div>
                     <div class="col-6">
-                        <h2>Project</h2>
+                        <h2>Project Gutenberg</h2>
                         <p>
-                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas aliquet turpis sit amet mauris cursus condimentum.
-                            Mauris velit nunc, sollicitudin ac elementum sed, consectetur a justo. Fusce bibendum justo id ipsum sollicitudin feugiat.
-                            Vestibulum bibendum at magna in efficitur. In a lacus sed turpis commodo cursus. Ut egestas pellentesque luctus. Nulla
-                            id commodo elit, scelerisque fringilla turpis. Curabitur ullamcorper dignissim risus vel cursus. Nunc vestibulum bibendum
-                            nibh, nec egestas odio. Nunc porttitor ligula et ipsum elementum varius. Nam sed convallis magna.
+                            Project Gutenberg is one of the biggest free providers of e-books, however, the Gutenberg website had fallen behind modern design trends. With an outdated look and poor mobile support in an ever-growing mobile world, the objective was to redesign the website with a modern look, that worked on desktops, tablets and mobiles.
                         </p>
                     </div>
                 </section>
-                <div class="work_next">
-                    >>
-                </div>
             </main>
             <footer class="row">
                 <div class="footer_social">
