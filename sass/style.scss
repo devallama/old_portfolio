@@ -76,6 +76,13 @@ nav{
     background-color: #2c7488;
     text-align: center;
 
+    .nav_icon{
+        display: none;
+        width: 54px;
+        padding: 10px 10px;
+        cursor: pointer;
+    }
+
     ul{
         list-style: none;
         margin: 20px auto;
@@ -287,7 +294,7 @@ footer{
         color: #fff;
     }
 
-    input:valid {
+    input[type="email"]:valid, input[type="text"]:valid {
         border: 2px solid #78f078;
         border-radius: 3px;
     }
@@ -354,6 +361,7 @@ footer{
     .search_bar{
         text-align: center;
         margin: 20px 0;
+        display: block !important;
 
         input{
             padding: 10px 20px;
@@ -583,6 +591,10 @@ aside{
         }
     }
 
+    .search_bar input{
+        width: 70% !important;
+    }
+
     .col-6 {
         width: $half_width;
     }
@@ -609,7 +621,87 @@ aside{
 
 /* Extra Small Devices, Phones */
 @media all and (max-width: $mobile_break) {
+    body{
+        font-size: 14px;
+    }
+
+    nav{
+        overflow: auto;
+        background: #569aaf;
+
+        .nav_icon{
+            display: block;
+        }
+
+        ul{
+            display: none;
+            padding: 0;
+            margin: 0;
+            width: 100%;
+            background-color: #2c7488;
+
+            li{
+                display: block !important;
+                font-size: 1em;
+            }
+        }
+
+        &:hover ul{
+            display: block;
+
+            li{
+                float: none;
+                margin: 10px auto;
+                font-size: 1.5em;
+            }
+        }
+    }
+
+    .sub_header{
+        h1{
+            text-align: center !important;
+            margin-top: 10px;
+        }
+    }
+
+    #about{
+        p{
+            width: 100%;
+        }
+    }
+
+    #blog, #blog_post{
+        padding-right: 0;
+    }
+
+    aside{
+        text-align: center !important;
+        padding-bottom: 20px;
+        background-color: #acdeff;
+
+        li{
+            text-align: center !important;
+        }
+
+        .section_border{
+            margin: 0 auto;
+        }
+
+        .socialmedia_icon{
+            margin-left: auto;
+            margin-right: auto;
+        }
+    }
+
     .col-8 {
+        width: $max_width;
+    }
+
+    .col-10{
+        width: $max_width;
+    }
+
+    .col-2{
         width: $max_width;
     }
 
