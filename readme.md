@@ -2,4 +2,4 @@
 
 My previous portfolio.
 
-Visible at https://nickallama.github.io/old_portfolio/src/index.html
+Visible at https://devellama.github.io/old_portfolio/src/index.html
